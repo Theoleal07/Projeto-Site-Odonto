@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Odonto</title>
+<style>
+/* ----- Reset e Base ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url(img/img3.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 70px;
+    color: #722F37;
+}
+
+/* ----- Top Bar ----- */
+.top-bar {
+    background: #000000;
+    backdrop-filter: blur(10px);
+    color: #722F37;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    margin-right: 10px;
+    font-size: 28px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: #722F37;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(114, 47, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ----- Sessão de Contato ----- */
+#contact {
+    padding: 60px 20px;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.contact-image {
+    flex: 0 0 45%;
+}
+
+.contact-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.contact-content {
+    flex: 1;
+    color: #722F37;
+    background: #000000;
+    padding: 20px 24px;
+    border-radius: 12px;
+}
+
+.contact-content h1 {
+    margin-bottom: 12px;
+}
+
+.contact-content p {
+    line-height: 1.6;
+}
+
+/* ----- Portfólio ----- */
+#portfolio {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Linha divisória com título */
+.section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #722F37;
+    z-index: 0;
+}
+
+.section-title span {
+    background-color: #000000;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* Texto de introdução */
+.portfolio-intro {
+    text-align: center;
+    background: #000000cc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.portfolio-intro h2 {
+    margin-bottom: 10px;
+}
+
+.portfolio-intro p {
+    line-height: 1.6;
+}
+
+/* Galeria de certificados */
+.certificates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.certificate {
+    background: #000000;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.certificate:hover {
+    transform: scale(1.03);
+}
+
+.certificate img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.certificate p {
+    font-size: 0.95rem;
+}
+
+/* ----- Downbar ----- */
+.downbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    background: #000000;
+    backdrop-filter: blur(8px);
+    color: #722F37;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 16px;
+    z-index: 1100;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 300ms ease, opacity 300ms ease;
+    pointer-events: none;
+}
+
+.downbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.downbar .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.downbar .sep {
+    opacity: 0.6;
+}
+
+.downbar a {
+    color: #722F37;
+    text-decoration: none;
+}
+
+.whatsapp-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .certificates {
+        grid-template-columns: 1fr;
+    }
+    .downbar {
+        gap: 12px;
+        padding: 0 12px;
+    }
+    .downbar .sep {
+        display: none;
+    }
+    .downbar .address {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="logo">
+            <span class="logo-icon">🦷</span>
+            Projeto Odonto
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Seção de Contato -->
+    <div id="contact">
+        <div class="contact-container">
+            <div class="contact-image">
+                <img src="img/img4.jpg" alt="Imagem ilustrativa" />
+            </div>
+            <div class="contact-content">
+                <h1>Sobre a Profissional</h1>
+                <p>
+                    Especialista em odontologia estética e funcional, com foco em 
+                    proporcionar sorrisos mais saudáveis e harmônicos. Cada tratamento
+                    é planejado de forma personalizada, unindo técnica e cuidado humano.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Portfólio -->
+    <section id="portfolio">
+        <div class="section-title">
+            <span>Certificações e Especializações</span>
+        </div>
+
+        <div class="portfolio-intro">
+            <h2>Excelência em Odontologia</h2>
+            <p>
+                Ao longo da carreira, foram conquistadas diversas certificações que
+                representam o compromisso com a atualização constante e a busca por
+                resultados de alta qualidade. Confira abaixo algumas especializações
+                e seus significados.
+            </p>
+        </div>
+
+        <div class="certificates">
+            <div class="certificate">
+                <img src="img/lelio.jpg" alt="Certificado de Estética Dental">
+                <p>Certificação em Estética Dental — aprimoramento em técnicas de harmonização e restauração estética.</p>
+            </div>
+            <div class="certificate">
+                <img src="img/certificado2.jpg" alt="Certificado de Implantes">
+                <p>Especialização em Implantodontia — domínio em técnicas modernas de implantes dentários.</p>
+            </div>
+            <div class="certificate">
+                <img src="img/certificado3.jpg" alt="Certificado de Reabilitação Oral">
+                <p>Curso de Reabilitação Oral Avançada — foco em devolver função e estética aos pacientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downbar -->
+    <div class="downbar">
+        <div class="item">
+            <img class="whatsapp-icon" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" />
+            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">(11) 99999-9999</a>
+        </div>
+        <span class="sep">|</span>
+        <div class="item address">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</div>
+    </div>
+        
+    <script>
+    (function () {
+        const downbar = document.querySelector('.downbar');
+        let lastY = window.scrollY;
+        let ticking = false;
+        const threshold = 6;
+
+        function update() {
+            ticking = false;
+            const currentY = window.scrollY;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const isAtBottom = (currentY + clientHeight) >= (scrollHeight - 10);
+
+            if (isAtBottom || currentY > lastY + threshold) {
+                downbar.classList.add('visible');
+            } else if (currentY < lastY - threshold || currentY <= 0) {
+                downbar.classList.remove('visible');
+            }
+            lastY = currentY;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(update);
+                ticking = true;
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
