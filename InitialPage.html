@@ -75,8 +75,8 @@ body {
     letter-spacing: 0.2px;
 }
 
-/* ----- Portfólio ----- */
-#portfolio {
+/* ----- Porceiros ----- */
+#parceiros {
     padding: 80px 20px;
     max-width: 1100px;
     margin: 0 auto;
@@ -136,13 +136,13 @@ body {
 }
 
 /* Galeria de certificados */
-.certificates {
+.parceiros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
 }
 
-.certificate {
+.parceiro {
     background: #000000;
     border-radius: 12px;
     padding: 15px;
@@ -150,17 +150,17 @@ body {
     transition: transform 0.3s ease;
 }
 
-.certificate:hover {
+.parceiro:hover {
     transform: scale(1.03);
 }
 
-.certificate img {
+.parceiro img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
-.certificate p {
+.parceiro p {
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.6;
@@ -634,7 +634,7 @@ body {
         flex-direction: column;
     }
     
-    .certificates {
+    .parceiros {
         grid-template-columns: 1fr;
     }
     
@@ -832,34 +832,33 @@ body {
     </div>
     </section>
 
-    <!-- Seção de Portfólio -->
-    <section id="portfolio">
+    <!-- Seção de Parceiros -->
+    <section id="parceiros">
         <div class="section-title">
-            <span>Certificações e Especializações</span>
+            <span>Nossos Parceiros</span>
         </div>
 
-        <div class="portfolio-intro">
-            <h2>Excelência em Odontologia</h2>
-            <p>
-                Ao longo da carreira, foram conquistadas diversas certificações que
-                representam o compromisso com a atualização constante e a busca por
-                resultados de alta qualidade. Confira abaixo algumas especializações
-                e seus significados.
-            </p>
-        </div>
-
-        <div class="certificates">
-            <div class="certificate">
-                <img src="img/certificado1.jpg" alt="Certificado de Estética Dental">
-                <p>Certificação em Estética Dental — aprimoramento em técnicas de harmonização e restauração estética.</p>
+        <div class="parceiros">
+            <div class="parceiro">
+                <img src="img/Barcelos.jpeg" alt="Dra Marina Barcelos">
+                <p>Cro 125239</p>
+                <p>Especialização em Periodontia;</p>
+                <p>Especialização Implanto;</p>
             </div>
-            <div class="certificate">
-                <img src="img/certificado2.jpg" alt="Certificado de Implantes">
-                <p>Especialização em Implantodontia — domínio em técnicas modernas de implantes dentários.</p>
+            <div class="parceiro">
+                <img src="img/Luis.jpeg" alt="Dr Luis Aurélio Camargo">
+                <p>Cro 63524</p>
+                <p>Mestrado e Especialização em Implantes Dentários;</p>
             </div>
-            <div class="certificate">
-                <img src="img/certificado3.jpg" alt="Certificado de Reabilitação Oral">
-                <p>Curso de Reabilitação Oral Avançada — foco em devolver função e estética aos pacientes.</p>
+            <div class="parceiro">
+                <img src="img/Porteiro.jpeg" alt="Dra Mariana Porteiro">
+                <p>Cro ______</p>
+                <p>Especialização em Odontopediatria;</p>
+            </div>
+            <div class="parceiro">
+                <img src="img/Aline.jpeg" alt="Dra Aline Oliveira Peixoto Xavier">
+                <p>Cro 64062</p>
+                <p>Mestrado e Especialização em Odontologia;</p>
             </div>
         </div>
     </section>
