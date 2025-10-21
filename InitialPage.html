@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projeto Odonto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ----- Reset e Base ----- */
 * {
@@ -13,12 +16,14 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: url(img/img3.jpg) no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     padding-bottom: 70px;
     color: #722F37;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 /* ----- Top Bar ----- */
@@ -38,10 +43,12 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
+    letter-spacing: -0.5px;
 }
 
 .logo-icon {
@@ -58,10 +65,12 @@ body {
 .nav-menu li a {
     color: #722F37;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
     padding: 8px 16px;
     border-radius: 20px;
+    letter-spacing: 0.3px;
 }
 
 .nav-menu li a:hover {
@@ -102,11 +111,19 @@ body {
 }
 
 .contact-content h1 {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
 }
 
 .contact-content p {
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.2px;
 }
 
 /* ----- Portfólio ----- */
@@ -139,8 +156,10 @@ body {
     padding: 0 20px;
     position: relative;
     z-index: 1;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.3px;
 }
 
 /* Texto de introdução */
@@ -153,11 +172,18 @@ body {
 }
 
 .portfolio-intro h2 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.2px;
 }
 
 .portfolio-intro p {
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.1px;
 }
 
 /* Galeria de certificados */
@@ -186,7 +212,379 @@ body {
 }
 
 .certificate p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+}
+
+/* ----- Hero Section ----- */
+.hero {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(114, 47, 55, 0.3)), url(img/img3.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #722F37, #8B3A42);
+    color: white;
+    box-shadow: 0 8px 25px rgba(114, 47, 55, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(114, 47, 55, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #722F37;
+    transform: translateY(-3px);
+}
+
+/* ----- Services Section ----- */
+#services {
+    padding: 100px 20px;
+    background: #f8f9fa;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #722F37;
+}
+
+.service-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #722F37;
+}
+
+.service-card p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* ----- Benefits Section ----- */
+#benefits {
+    padding: 100px 20px;
+    background: #000000;
+    color: white;
+}
+
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #722F37;
+}
+
+.benefit-item h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #722F37;
+}
+
+.benefit-item p {
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* ----- About Section ----- */
+#about {
+    padding: 100px 20px;
+    background: white;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #722F37;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #722F37;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- Testimonials Section ----- */
+#testimonials {
+    padding: 100px 20px;
+    background: #f8f9fa;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    font-size: 4rem;
+    color: #722F37;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-family: serif;
+}
+
+.testimonial-text {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: #722F37;
+    padding-left: 20px;
+}
+
+/* ----- Contact Form ----- */
+.contact-form {
+    background: #000000;
+    padding: 80px 20px;
+    color: white;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #722F37;
+}
+
+.form-container p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #722F37;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #722F37;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #722F37, #8B3A42);
+    color: white;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(114, 47, 55, 0.6);
 }
 
 /* ----- Downbar ----- */
@@ -230,6 +628,8 @@ body {
 .downbar a {
     color: #722F37;
     text-decoration: none;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
 }
 
 .whatsapp-icon {
@@ -239,12 +639,50 @@ body {
 }
 
 @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .contact-container {
         flex-direction: column;
     }
+    
     .certificates {
         grid-template-columns: 1fr;
     }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .downbar {
         gap: 12px;
         padding: 0 12px;
@@ -268,28 +706,175 @@ body {
         <nav>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
     </div>
 
-    <!-- Seção de Contato -->
-    <div id="contact">
-        <div class="contact-container">
-            <div class="contact-image">
-                <img src="img/img4.jpg" alt="Imagem ilustrativa" />
-            </div>
-            <div class="contact-content">
-                <h1>Sobre a Profissional</h1>
-                <p>
-                    Especialista em odontologia estética e funcional, com foco em 
-                    proporcionar sorrisos mais saudáveis e harmônicos. Cada tratamento
-                    é planejado de forma personalizada, unindo técnica e cuidado humano.
-                </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>RENOVE SEU SORRISO COM EXCELÊNCIA EM ODONTOLOGIA!</h1>
+            <p class="hero-subtitle">Transforme sua confiança com tratamentos especializados em Endodontia e Clínica Geral</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">QUERO AGENDAR MINHA CONSULTA!</a>
+                <a href="#services" class="btn-secondary">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="services-container">
+            <div class="section-title">
+                <span>NOSSOS SERVIÇOS ESPECIALIZADOS</span>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🦷</div>
+                    <h3>Endodontia</h3>
+                    <p>Tratamento de canal especializado com técnicas modernas e equipamentos de última geração para preservar seus dentes naturais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Clínica Geral</h3>
+                    <p>Atendimento completo em odontologia geral, incluindo restaurações, limpeza, prevenção e cuidados básicos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Especialistas Parceiros</h3>
+                    <p>Rede de profissionais especializados em diversas áreas da odontologia para oferecer o melhor tratamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="benefits-container">
+            <div class="section-title">
+                <span style="background-color: #000000;">POR QUE ESCOLHER NOSSA CLÍNICA?</span>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⭐</div>
+                    <h4>EXCELÊNCIA COMPROVADA</h4>
+                    <p>Mais de 26 anos de experiência com milhares de pacientes atendidos com sucesso.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏥</div>
+                    <h4>ATENDIMENTO HUMANIZADO</h4>
+                    <p>Cuidado personalizado e focado na satisfação plena de cada paciente.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👥</div>
+                    <h4>EQUIPE ESPECIALIZADA</h4>
+                    <p>Profissionais qualificados em diversas especialidades odontológicas.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔬</div>
+                    <h4>TECNOLOGIA AVANÇADA</h4>
+                    <p>Equipamentos modernos para diagnósticos precisos e tratamentos eficazes.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💯</div>
+                    <h4>RESULTADOS GARANTIDOS</h4>
+                    <p>Compromisso com a qualidade e satisfação em cada procedimento realizado.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤝</div>
+                    <h4>CONFIANÇA E TRANSPARÊNCIA</h4>
+                    <p>Relacionamento baseado na confiança e transparência em todos os tratamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>CONHEÇA A DRA. TACIANE VIEIRA LEAL CUNHA</h2>
+                <p>Dra. Taciane Vieira Leal Cunha é uma dentista formada há 26 anos pela Unimep Lins e especialista em Endodontia há 23 anos, também pela Unimep Lins.</p>
+                <p>Em Franca, há mais de 20 anos, atende seus pacientes como Endodontista, atuando também como clínica geral. Possui uma equipe de dentistas parceiros e especialistas em diversas áreas que atendem em sua clínica.</p>
+                <p>Tem como missão realizar um trabalho com excelência, humanizado e único, priorizando a satisfação plena de cada paciente.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">26+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">23+</span>
+                        <span class="stat-label">Anos em Endodontia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Anos em Franca</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Satisfação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="img/img4.jpg" alt="Dra. Taciane Vieira Leal Cunha" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-title">
+                <span>O QUE DIZEM NOSSOS PACIENTES</span>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Excelente atendimento! A Dra. Taciane é muito cuidadosa e profissional. Recomendo para todos que precisam de tratamento odontológico.</p>
+                    <div class="testimonial-author">- Maria Silva</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Fiz um tratamento de canal e foi muito tranquilo. A equipe é muito atenciosa e o ambiente é acolhedor. Super indico!</p>
+                    <div class="testimonial-author">- João Santos</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Profissional excepcional! Há anos confio na Dra. Taciane para cuidar da saúde bucal da minha família. Sempre muito satisfeito.</p>
+                    <div class="testimonial-author">- Ana Costa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <div class="form-container">
+            <h2>SEU NOVO SORRISO ESTÁ A APENAS UM CLIQUE DE DISTÂNCIA!</h2>
+            <p>Preencha seus dados e agende sua avaliação agora mesmo.</p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone *</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(16) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Conte-nos como podemos ajudar você..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">AGENDAR CONSULTA VIA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Seção de Portfólio -->
     <section id="portfolio">
@@ -327,13 +912,76 @@ body {
     <div class="downbar">
         <div class="item">
             <img class="whatsapp-icon" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" />
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">(11) 99999-9999</a>
+            <a href="https://wa.me/5516981805602" target="_blank" rel="noopener">(16) 98180-5602</a>
         </div>
         <span class="sep">|</span>
-        <div class="item address">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</div>
+        <div class="item address" style="font-weight: 500; font-family: 'Inter', sans-serif;">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</div>
     </div>
         
     <script>
+    // WhatsApp Integration
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const mensagem = document.getElementById('mensagem').value;
+        
+        // Número do WhatsApp da clínica (substitua pelo número real)
+        const whatsappNumber = '5516981805602'; // Formato: 55 (Brasil) + DDD + número
+        
+        // Mensagem formatada para o WhatsApp
+        const mensagemWhatsApp = `🦷 *NOVA SOLICITAÇÃO DE CONSULTA* 🦷
+
+👤 *Nome:* ${nome}
+📧 *E-mail:* ${email}
+📱 *Telefone:* ${telefone}
+
+💬 *Mensagem:*
+${mensagem || 'Cliente interessado em agendar consulta'}
+
+---
+*Enviado através do site Projeto Odonto*`;
+        
+        // URL do WhatsApp Web/App
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+        
+        // Abre o WhatsApp
+        window.open(whatsappURL, '_blank');
+        
+        // Feedback visual para o usuário
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'REDIRECIONANDO...';
+        submitBtn.style.background = '#28a745';
+        
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            // Limpa o formulário
+            document.getElementById('contactForm').reset();
+        }, 2000);
+    });
+
+    // Máscara para telefone
+    document.getElementById('telefone').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 11) {
+            if (value.length <= 2) {
+                value = value;
+            } else if (value.length <= 6) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            } else if (value.length <= 10) {
+                value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+            } else {
+                value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+            }
+            e.target.value = value;
+        }
+    });
+
+    // Scroll behavior for downbar
     (function () {
         const downbar = document.querySelector('.downbar');
         let lastY = window.scrollY;
