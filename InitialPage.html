@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <style>
 /* ----- Reset e Base ----- */
 * {
@@ -665,6 +667,19 @@ body {
         display: none;
     }
 }
+
+.carousel-cell {
+  width: 30%;
+  margin-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 </style>
 </head>
 
@@ -788,20 +803,20 @@ body {
             <div class="section-title">
                 <span>O QUE DIZEM NOSSOS PACIENTES</span>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Excelente atendimento! A Dra. Taciane é muito cuidadosa e profissional. Recomendo para todos que precisam de tratamento odontológico.</p>
-                    <div class="testimonial-author">- Maria Silva</div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Fiz um tratamento de canal e foi muito tranquilo. A equipe é muito atenciosa e o ambiente é acolhedor. Super indico!</p>
-                    <div class="testimonial-author">- João Santos</div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Profissional excepcional! Há anos confio na Dra. Taciane para cuidar da saúde bucal da minha família. Sempre muito satisfeito.</p>
-                    <div class="testimonial-author">- Ana Costa</div>
-                </div>
-            </div>
+        </div>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": 2000 }'>
+            <div class="carousel-cell"><img src="img/Depoimento_Eduardo_Martori.png" alt="Imagem 1"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Flavia_Morais.png" alt="Imagem 2"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Gabriela_Gióra.png" alt="Imagem 3"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Juliano_Lombardi.png" alt="Imagem 4"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Leticia_Bianca.png" alt="Imagem 5"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Maria_Paula_Peres.png" alt="Imagem 6"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Mariana_Couto.png" alt="Imagem 7"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Nilda_Morais.png" alt="Imagem 8"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Paula_Morais.png" alt="Imagem 9"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Silmara_Lombardi.png" alt="Imagem 10"></div>
+            <div class="carousel-cell"><img src="img/Depoimento_Thaise_Martori.png" alt="Imagem 11"></div>
         </div>
     </section>
 
