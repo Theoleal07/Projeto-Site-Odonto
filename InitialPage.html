@@ -22,7 +22,7 @@ body {
     background: url(img/img3.jpg) no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
-    padding-bottom: 70px;
+    padding-bottom: 0;
     color: #722F37;
     font-weight: 500;
     line-height: 1.6;
@@ -77,18 +77,58 @@ body {
     letter-spacing: 0.2px;
 }
 
-/* ----- Porceiros ----- */
+/* ----- Parceiros ----- */
 #parceiros {
-    padding: 80px 20px;
-    max-width: 1100px;
+    padding: 60px 0 120px 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.95), 
+        rgba(114, 47, 55, 0.9), 
+        rgba(0, 0, 0, 0.9)
+    );
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    margin-bottom: 0;
+}
+
+#parceiros::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(114, 47, 55, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(114, 47, 55, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+#parceiros .section-title,
+#parceiros .parceiros {
+    position: relative;
+    z-index: 1;
+}
+
+#parceiros .section-title {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+#parceiros .parceiros {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Linha divisória com título */
 .section-title {
     position: relative;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
+    padding: 20px 0 20px 0;
 }
 
 .section-title::before {
@@ -97,21 +137,25 @@ body {
     top: 50%;
     left: 0;
     width: 100%;
-    height: 2px;
-    background-color: #722F37;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #722F37, #ffffff, #722F37, transparent);
     z-index: 0;
 }
 
 .section-title span {
-    background-color: #000000;
-    padding: 0 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(114, 47, 55, 0.8));
+    padding: 0 30px;
     position: relative;
     z-index: 1;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 800;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
+
 
 /* Texto de introdução */
 .portfolio-intro {
@@ -137,36 +181,82 @@ body {
     letter-spacing: 0.1px;
 }
 
-/* Galeria de certificados */
+/* Galeria de parceiros */
 .parceiros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 0 100px 0;
+    align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+    .parceiros {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .parceiros {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 .parceiro {
-    background: #000000;
-    border-radius: 12px;
-    padding: 15px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    border-radius: 15px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(114, 47, 55, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .parceiro:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(114, 47, 55, 0.3);
+    border-color: rgba(114, 47, 55, 0.4);
 }
 
 .parceiro img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.parceiro .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .parceiro p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.5;
     letter-spacing: 0.1px;
+    color: #722F37;
+    margin-bottom: 8px;
+}
+
+.parceiro p:first-of-type {
+    font-weight: 700;
+    color: #000;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 /* ----- Hero Section ----- */
@@ -575,6 +665,7 @@ body {
     opacity: 0;
     transition: transform 300ms ease, opacity 300ms ease;
     pointer-events: none;
+    margin: 0;
 }
 
 .downbar.visible {
@@ -636,8 +727,9 @@ body {
         flex-direction: column;
     }
     
-    .parceiros {
-        grid-template-columns: 1fr;
+    .parceiro img {
+        height: 180px;
+        padding: 8px;
     }
     
     .services-grid {
@@ -792,7 +884,7 @@ body {
                 </div>
             </div>
             <div class="about-image">
-                <img src="img/img4.jpg" alt="Dra. Taciane Vieira Leal Cunha" />
+                <img src="img/Taciane.jpg" alt="Dra. Taciane Vieira Leal Cunha" />
             </div>
         </div>
     </section>
@@ -850,30 +942,38 @@ body {
     <!-- Seção de Parceiros -->
     <section id="parceiros">
         <div class="section-title">
-            <span>Nossos Parceiros</span>
+            <span>EQUIPE DE ESPECIALISTAS</span>
         </div>
 
         <div class="parceiros">
             <div class="parceiro">
                 <img src="img/Barcelos.jpeg" alt="Dra Marina Barcelos">
-                <p>Cro 125239</p>
-                <p>Especialização em Periodontia;</p>
-                <p>Especialização Implanto;</p>
+                <div class="card-content">
+                    <p>Cro 125239</p>
+                    <p>Especialização em Periodontia</p>
+                    <p>Especialização Implanto</p>
+                </div>
             </div>
             <div class="parceiro">
                 <img src="img/Luis.jpeg" alt="Dr Luis Aurélio Camargo">
-                <p>Cro 63524</p>
-                <p>Mestrado e Especialização em Implantes Dentários;</p>
+                <div class="card-content">
+                    <p>Cro 63524</p>
+                    <p>Mestrado e Especialização em Implantes Dentários</p>
+                </div>
             </div>
             <div class="parceiro">
                 <img src="img/Porteiro.jpeg" alt="Dra Mariana Porteiro">
-                <p>Cro ______</p>
-                <p>Especialização em Odontopediatria;</p>
+                <div class="card-content">
+                    <p>Cro ______</p>
+                    <p>Especialização em Odontopediatria</p>
+                </div>
             </div>
             <div class="parceiro">
                 <img src="img/Aline.jpeg" alt="Dra Aline Oliveira Peixoto Xavier">
-                <p>Cro 64062</p>
-                <p>Mestrado e Especialização em Odontologia;</p>
+                <div class="card-content">
+                    <p>Cro 64062</p>
+                    <p>Mestrado e Especialização em Odontologia</p>
+                </div>
             </div>
         </div>
     </section>
