@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<!-- Adicionar Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 :root {
     --topbar-height: 72px;
@@ -867,63 +869,37 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    :root {
-        --topbar-height: 64px;
+/* Ajustes Mobile (apenas para telas menores que 768px) */
+@media (max-width: 767px) {
+    .parceiro {
+        margin: 10px;
+        padding: 15px;
     }
 
-    .topbar {
-        padding: 0 10px;
+    .parceiro img {
+        height: auto;
+        max-height: 300px;
+        width: 100%;
+        object-fit: contain; /* Evita cortes na imagem */
+        padding: 0;
+        margin-bottom: 15px;
     }
 
-    .topbar-inner {
-        gap: 12px;
-    }
-
-    .topbar-logo {
-        height: 40px;
-    }
-
-    .topnav {
-        gap: 8px;
-        margin: 0 -10px;
-        padding: 0 10px;
-    }
-
-    .topnav a {
-        padding: 6px 10px;
-        font-size: 0.9rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .section-title span {
-        font-size: 1.6rem;
-        padding: 0 15px;
-    }
-
-    .carousel-cell {
-        width: 85%;
+    .parceiro .card-content {
+        padding: 15px;
+        margin-top: 10px;
     }
 }
 
+/* Fix para menus em telas pequenas */
 @media (max-width: 480px) {
-    .topbar-logo {
-        height: 36px;
-    }
-
     .topnav {
-        gap: 6px;
-    }
-
-    .topnav a {
-        padding: 6px 8px;
-        font-size: 0.85rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        padding: 10px 0;
     }
 }
-/* ...existing code... */
 </style>
 </head>
 
@@ -1250,5 +1226,7 @@ ${mensagem || 'Cliente interessado em agendar consulta'}
 
     // Removido: scripts e comportamentos relacionados à downbar
     </script>
+    <!-- Adicionar Bootstrap JS (no final do body, antes do </body>) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
