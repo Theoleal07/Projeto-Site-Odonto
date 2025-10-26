@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <style>
+:root {
+    --topbar-height: 72px;
+}
+
 /* ----- Reset e Base ----- */
 * {
     margin: 0;
@@ -17,17 +21,63 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--topbar-height); /* evita que âncoras fiquem sob o topbar */
+}
+
+/* garante espaço visual no conteúdo para a topbar fixa */
 body {
     font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: url(img/img3.jpg) no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
+    padding-top: var(--topbar-height);
     padding-bottom: 0;
     color: #722F37;
     font-weight: 500;
     line-height: 1.6;
 }
 
+/* ----- Topbar ----- */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:var(--topbar-height);
+    display:flex;
+    align-items:center;
+    z-index:1200;
+    background: linear-gradient(90deg, rgba(0,0,0,0.95), rgba(114,47,55,0.95));
+    padding:0 20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.35);
+    color:#fff;
+    font-weight:600;
+}
+
+.topbar .topbar-inner{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    justify-content:space-between;
+}
+
+/* logo (substitua img/logo.png pela sua imagem) */
+.topbar .brand a { display:inline-flex; align-items:center; text-decoration:none; color:#fff; }
+.topbar-logo { height:48px; width:auto; display:block; border-radius:6px; }
+
+/* menu */
+.topnav{ display:flex; gap:14px; align-items:center; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width: none; -ms-overflow-style: none; }
+.topnav::-webkit-scrollbar { display: none; }
+.topnav a{ color:#ffdfe0; text-decoration:none; padding:8px 12px; border-radius:8px; transition:background .25s; font-size:.95rem; white-space:nowrap; flex-shrink:0; }
+.topnav a:hover{ background:rgba(255,255,255,0.06); color:#fff; }
+
+/* ações à direita */
+.top-actions .phone{ color:#25D366; font-weight:700; text-decoration:none; display:inline-flex; gap:8px; align-items:center; }
 
 /* ----- Sessão de Contato ----- */
 #contact {
@@ -205,58 +255,98 @@ body {
 }
 
 .parceiro {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
-    border-radius: 15px;
-    padding: 20px;
+    background: linear-gradient(145deg, #fee9eb, #fff2f3);
+    border-radius: 18px;
+    padding: 25px;
     text-align: center;
     transition: all 0.4s ease;
     border: 2px solid rgba(114, 47, 55, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(114, 47, 55, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.parceiro::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(114, 47, 55, 0.05) 50%,
+        rgba(114, 47, 55, 0.1) 100%
+    );
+    pointer-events: none;
 }
 
 .parceiro:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(114, 47, 55, 0.3);
-    border-color: rgba(114, 47, 55, 0.4);
+    transform: translateY(-8px);
+    border-color: #722F37;
+    background: linear-gradient(145deg, #ffd6db, #fff0f2);
+    box-shadow: 0 20px 45px rgba(114, 47, 55, 0.2);
 }
 
 .parceiro img {
     width: 100%;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(145deg, #ffffff, #f8f9fa);
-    padding: 10px;
-    flex-shrink: 0;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(114, 47, 55, 0.15);
+}
+
+.parceiro:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(114, 47, 55, 0.25);
 }
 
 .parceiro .card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 240, 242, 0.95) 100%
+    );
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 -4px 15px rgba(114, 47, 55, 0.08);
+    border: 1px solid rgba(114, 47, 55, 0.15);
+    position: relative;
 }
 
-.parceiro p {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.1px;
+.parceiro .card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(114, 47, 55, 0.3),
+        transparent
+    );
+}
+
+.parceiro .card-content p {
     color: #722F37;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
 }
 
-.parceiro p:first-of-type {
+.parceiro .card-content p:first-of-type {
+    font-size: 1.3rem;
     font-weight: 700;
-    color: #000;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #722F37, #af4751);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
 }
 
 /* ----- Hero Section ----- */
@@ -646,59 +736,87 @@ body {
     box-shadow: 0 12px 35px rgba(114, 47, 55, 0.6);
 }
 
-/* ----- Downbar ----- */
-.downbar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 56px;
-    background: #000000;
-    backdrop-filter: blur(8px);
-    color: #722F37;
+/* ----- Seção de Localização ----- */
+#localizacao {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(114,47,55,0.85));
+    color: #fff;
+}
+
+#localizacao .section-title {
+    margin-bottom: 20px;
+}
+
+#localizacao iframe {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajuste do carrossel: mais largura horizontal e um pouco mais de altura para leitura */
+.carousel {
+    max-width: 1300px; /* aumentei a largura máxima do carrossel */
+    margin: 0 auto;
+    padding: 8px 0;
+}
+
+/* largura controlada por célula; altura definida pela imagem (auto) */
+.carousel-cell {
+    width: 30%;            /* ampliado para deixar as células mais largas */
+    margin-right: 12px;
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 0 16px;
-    z-index: 1100;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: transform 300ms ease, opacity 300ms ease;
-    pointer-events: none;
-    margin: 0;
+    justify-content: center;
+    background: linear-gradient(180deg, #fff, #f6f6f6); /* fundo suave atrás da imagem */
 }
 
-.downbar.visible {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.downbar .item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-}
-
-.downbar .sep {
-    opacity: 0.6;
-}
-
-.downbar a {
-    color: #722F37;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
-
-.whatsapp-icon {
-    width: 22px;
-    height: 22px;
+/* mantém proporção original da imagem sem cortar */
+.carousel-cell img {
     display: block;
+    width: 100%;
+    height: auto;           /* preserva proporção */
+    object-fit: contain;    /* não corta a imagem */
+    max-height: 380px;      /* aumentei a altura máxima para melhor leitura */
+}
+
+/* ajustes responsivos: reduz número de células visíveis em telas pequenas */
+@media (max-width: 1000px) {
+    .carousel-cell { width: 36%; }
+    .carousel-cell img { max-height: 300px; }
+}
+
+@media (max-width: 600px) {
+    .carousel-cell { width: 80%; margin-right: 12px; }
+    .carousel-cell img { max-height: 240px; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .topnav {
+        gap: 10px;
+        padding-bottom: 6px;
+    }
+    .topbar-inner {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .parceiros {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
 }
 
 @media (max-width: 768px) {
+    .parceiros {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -747,35 +865,90 @@ body {
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
-    .downbar {
+}
+
+@media (max-width: 768px) {
+    :root {
+        --topbar-height: 64px;
+    }
+
+    .topbar {
+        padding: 0 10px;
+    }
+
+    .topbar-inner {
         gap: 12px;
-        padding: 0 12px;
     }
-    .downbar .sep {
-        display: none;
+
+    .topbar-logo {
+        height: 40px;
     }
-    .downbar .address {
-        display: none;
+
+    .topnav {
+        gap: 8px;
+        margin: 0 -10px;
+        padding: 0 10px;
+    }
+
+    .topnav a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-title span {
+        font-size: 1.6rem;
+        padding: 0 15px;
+    }
+
+    .carousel-cell {
+        width: 85%;
     }
 }
 
-.carousel-cell {
-  width: 30%;
-  margin-right: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
+@media (max-width: 480px) {
+    .topbar-logo {
+        height: 36px;
+    }
 
-.carousel-cell img {
-  display: block;
-  width: 100%;
-  height: auto;
+    .topnav {
+        gap: 6px;
+    }
+
+    .topnav a {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
 }
+/* ...existing code... */
 </style>
 </head>
 
 <body>
+    <!-- Topbar (coloque seu logo em img/logo.png) -->
+    <header class="topbar" role="navigation" aria-label="Topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <a href="#home">
+                    <img src="img/logo.png" alt="Logo Consultório" class="topbar-logo">
+                </a>
+            </div>
+
+            <nav class="topnav" aria-label="Menu principal">
+                <a href="#home">Início</a>
+                <a href="#services">Serviços</a>
+                <a href="#benefits">Benefícios</a>
+                <a href="#about">Sobre</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#parceiros">Equipe</a>
+                <a href="#localizacao">Localização</a>
+                <a href="#contact-form">Contato</a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -978,33 +1151,43 @@ body {
         </div>
     </section>
 
-    <!-- Downbar -->
-    <div class="downbar">
-        <div class="item">
-            <img class="whatsapp-icon" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" />
-            <a href="https://wa.me/5516981805602" target="_blank" rel="noopener">(16) 98180-5602</a>
+    <!-- Adição: seção de Localização (Maps) -->
+    <section id="localizacao" style="padding:60px 20px; background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(114,47,55,0.85)); color:#fff;">
+        <div style="max-width:1200px; margin:0 auto; padding:20px; border-radius:12px; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.4));">
+            <div class="section-title" style="margin-bottom:20px;">
+                <!-- removi background:transparent e usei fundo escuro para cobrir a linha -->
+                <span style="background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(114,47,55,0.8)); padding:0 20px; font-size:1.6rem;">LOCALIZAÇÃO DO CONSULTÓRIO</span>
+            </div>
+            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:stretch;">
+                <div style="flex:1; min-width:300px; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
+                    <!-- iframe Google Maps (embed público) -->
+                    <iframe
+                        title="Mapa - R. Bolívia, 1245, Franca"
+                        src="https://www.google.com/maps?q=R.+Bol%C3%ADvia,+1245+-+Jardim+Consolacao,+Franca+-+SP,+14400-070&output=embed"
+                        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div style="width:360px; min-width:260px; padding:18px; border-radius:10px; background:linear-gradient(180deg,#00000088,#00000066);">
+                    <h3 style="margin-bottom:8px; font-family:'Poppins',sans-serif; color:#ffdfe0;">Nosso Endereço</h3>
+                    <p style="margin:0 0 12px; color:#fff;">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</p>
+                    <p style="margin:0 0 12px; color:#fff;">Atendimento mediante agendamento. Clique abaixo para abrir no WhatsApp e confirmar seu horário.</p>
+                    <a href="https://wa.me/5516981805602" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:12px 16px; border-radius:10px; background: linear-gradient(45deg,#722F37,#8B3A42); color:#fff; text-decoration:none; font-weight:700;">Abrir no WhatsApp</a>
+                </div>
+            </div>
         </div>
-        <span class="sep">|</span>
-        <div class="item address" style="font-weight: 500; font-family: 'Inter', sans-serif;">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</div>
-    </div>
-        
+    </section>
+
     <script>
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchors (mantido)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e){
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
-    // WhatsApp Integration
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // WhatsApp Integration (mantido)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
         e.preventDefault();
         
         const nome = document.getElementById('nome').value;
@@ -1048,7 +1231,7 @@ ${mensagem || 'Cliente interessado em agendar consulta'}
         }, 2000);
     });
 
-    // Máscara para telefone
+    // Máscara para telefone (mantido)
     document.getElementById('telefone').addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length <= 11) {
@@ -1065,35 +1248,7 @@ ${mensagem || 'Cliente interessado em agendar consulta'}
         }
     });
 
-    // Downbar behavior
-    (function () {
-        const downbar = document.querySelector('.downbar');
-        let lastY = window.scrollY;
-        let ticking = false;
-        const threshold = 6;
-
-        function update() {
-            ticking = false;
-            const currentY = window.scrollY;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight;
-            const isAtBottom = (currentY + clientHeight) >= (scrollHeight - 10);
-
-            if (isAtBottom || currentY > lastY + threshold) {
-                downbar.classList.add('visible');
-            } else if (currentY < lastY - threshold || currentY <= 0) {
-                downbar.classList.remove('visible');
-            }
-            lastY = currentY;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(update);
-                ticking = true;
-            }
-        });
-    })();
+    // Removido: scripts e comportamentos relacionados à downbar
     </script>
 </body>
 </html>
