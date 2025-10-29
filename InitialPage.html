@@ -1137,6 +1137,7 @@ body {
                     <p>Dr.Luis Aurélio</p>
                     <p>Cro 63524</p>
                     <p>Mestrado e Especialização em Implantes Dentários</p>
+                    <p>Especialização em Periodontia</p>
                 </div>
             </div>
             <div class="parceiro">
@@ -1177,7 +1178,25 @@ body {
                     <h3 style="margin-bottom:8px; font-family:'Poppins',sans-serif; color:#ffdfe0;">Nosso Endereço</h3>
                     <p style="margin:0 0 12px; color:#fff;">R. Bolívia, 1245 - Jardim Consolacao, Franca - SP, 14400-070</p>
                     <p style="margin:0 0 12px; color:#fff;">Atendimento mediante agendamento. Clique abaixo para abrir no WhatsApp e confirmar seu horário.</p>
-                    <a href="https://wa.me/5516981805602" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:12px 16px; border-radius:10px; background: linear-gradient(45deg,#722F37,#8B3A42); color:#fff; text-decoration:none; font-weight:700;">Abrir no WhatsApp</a>
+
+                    <!-- Botões: WhatsApp (existente) + Como Chegar (novo). O botão "Como Chegar" tem fallback via <a> caso JS esteja desativado. -->
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+                        <a href="https://wa.me/5516981805602" target="_blank" rel="noopener" style="display:inline-block; padding:12px 16px; border-radius:10px; background: linear-gradient(45deg,#722F37,#8B3A42); color:#fff; text-decoration:none; font-weight:700;">Abrir no WhatsApp</a>
+
+                        <!-- Botão que dispara tentativa de usar Geolocation e abrir rota no Google Maps -->
+                        <button id="openRouteBtn" aria-label="Traçar rota até o consultório" title="Traçar rota até o consultório" style="padding:12px 16px; border-radius:10px; background: linear-gradient(45deg,#ffd6db,#ffbfc6); color:#722F37; border:none; font-weight:700; cursor:pointer;">
+                            Abrir No Maps
+                        </button>
+
+                        <!-- Fallback link para casos sem JavaScript (abertura direta da rota para o destino) -->
+                        <noscript>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=R.+Bol%C3%ADvia,+1245+-+Jardim+Consolacao,+Franca+-+SP+14400-070&travelmode=driving"
+                               target="_blank" rel="noopener"
+                               style="display:inline-block; padding:12px 16px; border-radius:10px; background:#444; color:#fff; text-decoration:none; font-weight:700;">
+                                Traçar Rota (Abrir no Maps)
+                            </a>
+                        </noscript>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1254,6 +1273,32 @@ ${mensagem || 'Cliente interessado em agendar consulta'}
             e.target.value = value;
         }
     });
+
+    // Nova funcionalidade: abrir rota no Google Maps (usa Geolocation quando disponível)
+    (function(){
+        const btn = document.getElementById('openRouteBtn');
+        if(!btn) return;
+        const destination = 'R. Bolívia, 1245 - Jardim Consolacao, Franca - SP 14400-070';
+        const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+
+        btn.addEventListener('click', function(){
+            // Se o navegador suporta geolocation, tenta obter coords e abrir com origin
+            if (navigator.geolocation) {
+                const options = { timeout: 8000 };
+                navigator.geolocation.getCurrentPosition(function(position){
+                    const origin = `${position.coords.latitude},${position.coords.longitude}`;
+                    const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+                    window.open(url, '_blank');
+                }, function(error){
+                    // falha/negado: abre fallback sem origin (Google abre campo para inserir origem ou usa localização do dispositivo)
+                    window.open(fallbackUrl, '_blank');
+                }, options);
+            } else {
+                // sem suporte: abre fallback
+                window.open(fallbackUrl, '_blank');
+            }
+        }, false);
+    })();
 
     // Removido: scripts e comportamentos relacionados à downbar
     </script>
